@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Fiches de révision — Sciences Brevet 2026</title>
+<style>
+  :root{
+    --bleu:#2563eb; --bleu-d:#1e3a8a; --bleu-l:#eaf1fe;
+    --vert:#059669; --vert-l:#e6f7f0;
+    --orange:#ea580c; --orange-l:#fdeede;
+    --violet:#7c3aed; --violet-l:#f1e9fd;
+    --rose:#db2777; --rose-l:#fce7f1;
+    --rouge:#dc2626; --rouge-l:#fdeaea;
+    --cyan:#0891b2; --cyan-l:#e0f7fc;
+    --encre:#0f172a; --gris:#64748b; --trait:#e2e8f0;
+  }
+  *{box-sizing:border-box;}
+  @page{ size:A4; margin:11mm 11mm 12mm 11mm; }
+  html,body{margin:0;padding:0;}
+  body{ font-family:"Inter","SF Pro Display","Helvetica Neue",Arial,sans-serif;
+    color:var(--encre); font-size:10.4px; line-height:1.42; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  .sheet{ page-break-after:always; position:relative; } .sheet:last-child{ page-break-after:auto; }
+  .cover{ height:265mm; border-radius:20px; color:#fff; padding:32px 30px; position:relative; overflow:hidden;
+    background:radial-gradient(circle at 88% 8%,rgba(245,158,11,.5) 0%,transparent 42%),
+               radial-gradient(circle at 6% 92%,rgba(8,145,178,.5) 0%,transparent 42%),
+               linear-gradient(150deg,#0f172a 0%,#0c4a6e 60%,#065f46 100%);
+    display:flex; flex-direction:column;}
+  .cover .pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.25); padding:5px 8px 5px 6px; border-radius:999px; font-size:12px; font-weight:600; align-self:flex-start;}
+  .cover .pill .logo{ width:26px;height:26px;border-radius:50%;object-fit:cover;object-position:50% 22%; border:2px solid #f59e0b; box-shadow:0 0 0 1px rgba(0,0,0,.3);}
+  .cover .top{ display:flex; gap:22px; align-items:flex-start;} .cover .ttxt{ flex:1;}
+  .cover h1{ font-size:48px; margin:16px 0 2px; font-weight:800; letter-spacing:-1px; line-height:1;}
+  .cover h1 .ac{ background:linear-gradient(90deg,#fbbf24,#22d3ee); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .cover .sub{ font-size:16px; opacity:.85; font-weight:500;}
+  .cover .year-row{ display:flex; align-items:center; gap:16px; margin:18px 0 6px;}
+  .cover .year{ font-size:76px; font-weight:800; line-height:1;
+    background:linear-gradient(120deg,#fbbf24,#34d399,#22d3ee); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .cover .badges{ display:flex; flex-direction:column; gap:6px;}
+  .cover .badge{ background:rgba(255,255,255,.1); border-radius:9px; padding:6px 12px; font-size:11px;} .cover .badge b{ color:#fbbf24;}
+  .cover .heroimg{ flex:0 0 176px;}
+  .cover .heroimg img{ width:176px; height:264px; object-fit:cover; border-radius:16px; border:2px solid rgba(245,158,11,.6); box-shadow:0 10px 30px rgba(0,0,0,.45);}
+  .cover .heroimg .cred{ text-align:center; font-size:10px; font-weight:700; color:#f59e0b; margin-top:6px; letter-spacing:1px;}
+  .cover .toc{ margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  .cover .toc a.it{ text-decoration:none; color:#fff;}
+  .cover .toc .it{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:11px; padding:8px 12px; font-size:11.1px; display:flex; align-items:center; gap:9px;}
+  .cover .toc .n{ width:21px;height:21px;border-radius:6px;background:linear-gradient(135deg,#f59e0b,#0891b2); display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex:0 0 auto;}
+  .cover .foot{ margin-top:auto; font-size:11px; opacity:.72; border-top:1px solid rgba(255,255,255,.15); padding-top:11px;}
+  .ph{ border-radius:13px; padding:11px 16px; margin:0 0 11px; color:#fff; display:flex; align-items:center; gap:13px; box-shadow:0 3px 9px rgba(15,23,42,.16);}
+  .ph .n{ width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.2); display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex:0 0 auto;}
+  .ph h2{ margin:0; font-size:17px; font-weight:800; letter-spacing:-.3px;} .ph .tag{ font-size:10px; opacity:.9; font-weight:500;}
+  .ph .disc{ margin-left:auto; font-size:9px; background:rgba(255,255,255,.22); padding:3px 9px; border-radius:999px; font-weight:700; letter-spacing:.5px;}
+  .h-bleu{background:linear-gradient(100deg,#2563eb,#3b82f6);} .h-vert{background:linear-gradient(100deg,#059669,#10b981);}
+  .h-orange{background:linear-gradient(100deg,#ea580c,#f97316);} .h-violet{background:linear-gradient(100deg,#7c3aed,#a855f7);}
+  .h-cyan{background:linear-gradient(100deg,#0891b2,#22d3ee);} .h-rose{background:linear-gradient(100deg,#db2777,#ec4899);}
+  .h-air{background:linear-gradient(100deg,#b45309,#f59e0b);}
+  .cols{ column-count:2; column-gap:12px; }
+  .card{ break-inside:avoid; border-radius:11px; padding:0 0 8px; margin:0 0 10px; background:#fff; border:1px solid var(--trait); box-shadow:0 1px 4px rgba(15,23,42,.06); overflow:hidden;}
+  .card .ch{ display:flex; align-items:center; gap:7px; padding:6px 10px; font-size:11.2px; font-weight:700;}
+  .card .ch .ic{ width:20px;height:20px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex:0 0 auto;color:#fff;}
+  .card .body{ padding:2px 11px 0;}
+  .c-bleu .ch{background:var(--bleu-l);color:var(--bleu-d);} .c-bleu .ch .ic{background:var(--bleu);}
+  .c-vert .ch{background:var(--vert-l);color:#065f46;} .c-vert .ch .ic{background:var(--vert);}
+  .c-orange .ch{background:var(--orange-l);color:#9a3412;} .c-orange .ch .ic{background:var(--orange);}
+  .c-violet .ch{background:var(--violet-l);color:#5b21b6;} .c-violet .ch .ic{background:var(--violet);}
+  .c-cyan .ch{background:var(--cyan-l);color:#0e607a;} .c-cyan .ch .ic{background:var(--cyan);}
+  .c-rose .ch{background:var(--rose-l);color:#9d174d;} .c-rose .ch .ic{background:var(--rose);}
+  ul{ margin:3px 0; padding-left:15px;} li{ margin:1.5px 0;} p{ margin:3px 0;}
+  .formule{ background:linear-gradient(180deg,#f8fafc,#eef2ff); border:1px solid #dbe4f3; border-radius:8px; padding:5px 8px; margin:5px 0; text-align:center; font-size:11.2px; font-weight:700; color:var(--bleu-d);}
+  .def{ background:#f8fafc; border:1px solid var(--trait); border-radius:8px; padding:5px 9px; margin:5px 0; font-size:10px;}
+  .ex{ background:#f8fafc; border-radius:7px; padding:4px 8px; margin:4px 0; font-size:9.8px; border-left:3px solid #cbd5e1;}
+  .ex b{ color:var(--bleu);}
+  .astuce{ background:var(--vert-l); border-radius:7px; padding:4px 8px; margin:5px 0; font-size:9.6px; color:#065f46; border-left:3px solid var(--vert);}
+  .piege{ background:var(--rouge-l); border-radius:7px; padding:4px 8px; margin:5px 0; font-size:9.6px; color:#991b1b; border-left:3px solid var(--rouge);}
+  .frac{ display:inline-block; text-align:center; vertical-align:middle; margin:0 2px;}
+  .frac .n{ display:block; border-bottom:1.4px solid currentColor; padding:0 4px; line-height:1.15;} .frac .d{ display:block; padding:0 4px; line-height:1.15;}
+  table.mini{ border-collapse:collapse; width:100%; font-size:9.2px; margin:4px 0;}
+  table.mini td,table.mini th{ border:1px solid var(--trait); padding:2px 5px; text-align:left;} table.mini th{ background:var(--bleu-l); color:var(--bleu-d); text-align:center;}
+  .mexo{ break-inside:avoid; border:1px solid var(--trait); border-radius:12px; margin:0 0 11px; overflow:hidden; box-shadow:0 1px 4px rgba(15,23,42,.06); background:#fff;}
+  .mexo .mh{ background:linear-gradient(100deg,#1e293b,#334155); color:#fff; padding:6px 12px; font-size:11.5px; font-weight:700; display:flex; align-items:center; gap:8px;}
+  .mexo .mh .lvl{ margin-left:auto; font-size:9px; background:rgba(255,255,255,.18); padding:2px 8px; border-radius:999px; font-weight:600;}
+  .mexo .mb{ padding:7px 12px;}
+  .enonce{ background:#eff6ff; border-left:3px solid var(--bleu); border-radius:6px; padding:5px 9px; font-size:10px; margin:0 0 6px;}
+  .step{ display:flex; gap:8px; margin:4px 0; font-size:9.8px;}
+  .step .sn{ flex:0 0 auto; width:17px;height:17px;border-radius:50%;background:var(--violet);color:#fff; font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .concl{ background:var(--vert-l); border-radius:6px; padding:4px 9px; font-size:9.6px; color:#065f46; margin-top:5px; border-left:3px solid var(--vert);}
+  .plan{ display:flex; flex-direction:column; gap:8px;}
+  .day{ break-inside:avoid; display:flex; gap:11px; align-items:stretch; }
+  .day .pin{ flex:0 0 auto; width:62px; border-radius:10px; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:800; padding:7px 4px; text-align:center;}
+  .day .pin .big{ font-size:15px; line-height:1;} .day .pin .sm{ font-size:8px; font-weight:600; opacity:.9; margin-top:2px;}
+  .day .dc{ flex:1; border:1px solid var(--trait); border-radius:10px; padding:6px 11px; background:#fff; box-shadow:0 1px 3px rgba(15,23,42,.05);}
+  .day .dc b{ font-size:11px;} .day .dc .meta{ font-size:9px; color:var(--gris);} .day .dc ul{ margin:3px 0 0;}
+  .pin.j1{background:linear-gradient(135deg,#2563eb,#3b82f6);} .pin.j2{background:linear-gradient(135deg,#7c3aed,#a855f7);}
+  .pin.j3{background:linear-gradient(135deg,#059669,#10b981);} .pin.j4{background:linear-gradient(135deg,#ea580c,#f97316);}
+  .pin.j5{background:linear-gradient(135deg,#0891b2,#22d3ee);} .pin.jd{background:linear-gradient(135deg,#dc2626,#f43f5e);}
+  .qgrid{ column-count:2; column-gap:13px;}
+  .q{ break-inside:avoid; border:1px solid var(--trait); border-radius:10px; padding:7px 11px; margin:0 0 8px; background:#fff; box-shadow:0 1px 3px rgba(15,23,42,.05);}
+  .q .qq{ font-weight:700; font-size:10px; margin-bottom:3px;}
+  .q .qq .qn{ display:inline-flex; width:16px;height:16px;border-radius:50%;background:var(--violet);color:#fff; font-size:9px;align-items:center;justify-content:center;margin-right:5px;font-weight:700;}
+  .q .opt{ font-size:9.4px; margin:1.5px 0;}
+  .corr{ margin-top:9px; border-radius:10px; padding:8px 12px; background:linear-gradient(120deg,#064e3b,#065f46); color:#fff;}
+  .corr h3{ margin:0 0 4px; font-size:11px; color:#6ee7b7;} .corr .row{ font-size:9.4px; columns:2; column-gap:14px;} .corr .row span{ display:inline-block; margin:1px 0;} .corr b{ color:#fff;}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="sheet">
+  <div class="cover">
+    <div class="top">
+      <div class="ttxt">
+        <span class="pill"><img class="logo" src="airhead-portrait.jpg" alt="Airhead">🦸 Coaché par <b>The Airhead</b> · #AIRHEAD4LIFE</span>
+        <h1>Sciences <span class="ac">en fiches</span></h1>
+        <div class="sub">Physique-Chimie · SVT · Technologie</div>
+        <div class="year-row">
+          <div class="year">2026</div>
+          <div class="badges">
+            <div class="badge">⏱️ Épreuve de <b>1 h</b> · sur <b>50 points</b></div>
+            <div class="badge">🔬 <b>2 disciplines</b> sur les 3 le jour J</div>
+            <div class="badge">📊 Exploiter <b>documents</b> &amp; expériences</div>
+          </div>
+        </div>
+      </div>
+      <div class="heroimg"><img src="airhead-poster.jpg" alt="The Airhead"><div class="cred">TON COACH SCIENTIFIQUE</div></div>
+    </div>
+    <div class="toc">
+      <a class="it" href="#f1"><span class="n">1</span>PC · La matière (atomes, états)</a>
+      <a class="it" href="#f2"><span class="n">2</span>PC · Électricité (loi d'Ohm)</a>
+      <a class="it" href="#f3"><span class="n">3</span>PC · Mécanique &amp; énergie</a>
+      <a class="it" href="#f4"><span class="n">4</span>PC · Réactions chimiques</a>
+      <a class="it" href="#f5"><span class="n">5</span>SVT · Corps humain &amp; santé</a>
+      <a class="it" href="#f6"><span class="n">6</span>SVT · Génétique &amp; hérédité</a>
+      <a class="it" href="#f7"><span class="n">7</span>SVT · Terre, climat &amp; environnement</a>
+      <a class="it" href="#f8"><span class="n">8</span>Technologie &amp; programmation</a>
+      <a class="it" href="#meth" style="grid-column:1/3;background:rgba(251,191,36,.16);border-color:rgba(251,191,36,.4);"><span class="n" style="background:linear-gradient(135deg,#fbbf24,#f472b6)">★</span>Méthodes : exploiter un document · raisonner · unités</a>
+      <a class="it" href="#plan" style="background:rgba(96,165,250,.16);border-color:rgba(96,165,250,.4);"><span class="n" style="background:linear-gradient(135deg,#22d3ee,#3b82f6)">📅</span>Planning J-15 → jour J</a>
+      <a class="it" href="#qcm" style="background:rgba(244,114,182,.16);border-color:rgba(244,114,182,.4);"><span class="n" style="background:linear-gradient(135deg,#f472b6,#a855f7)">❓</span>QCM d'auto-évaluation</a>
+    </div>
+    <div class="foot">💡 Sommaire cliquable · Formules-clés en encadré · astuces ✔ et pièges ⚠.</div>
+  </div>
+</section>
+
+<!-- 1. MATIÈRE -->
+<section class="sheet" id="f1">
+  <div class="ph h-cyan"><div class="n">1</div><div><h2>La matière : atomes, molécules, états</h2>
+    <div class="tag">organisation &amp; transformations physiques</div></div><div class="disc">PHYSIQUE-CHIMIE</div></div>
+  <div class="cols">
+    <div class="card c-bleu"><div class="ch"><span class="ic">⚛️</span>De quoi est faite la matière ?</div><div class="body">
+      <ul><li><b>Atome</b> : noyau (protons +, neutrons) + électrons (−)</li>
+        <li><b>Molécule</b> : assemblage d'atomes (H₂O, CO₂, O₂)</li>
+        <li><b>Ion</b> : atome qui a gagné/perdu des électrons (charge + ou −)</li></ul>
+      <div class="ex"><b>Ex :</b> H₂O = 2 atomes d'hydrogène + 1 d'oxygène.</div>
+    </div></div>
+    <div class="card c-cyan"><div class="ch"><span class="ic">🧊</span>Les 3 états &amp; changements</div><div class="body">
+      <p>Solide · liquide · gaz.</p>
+      <table class="mini"><tr><th>Transformation</th><th>Nom</th></tr>
+        <tr><td>solide → liquide</td><td>fusion</td></tr><tr><td>liquide → gaz</td><td>vaporisation</td></tr>
+        <tr><td>gaz → liquide</td><td>liquéfaction</td></tr><tr><td>liquide → solide</td><td>solidification</td></tr></table>
+      <div class="astuce">✔ Lors d'un changement d'état, la <b>masse se conserve</b> (le volume, lui, change).</div>
+    </div></div>
+    <div class="card c-orange"><div class="ch"><span class="ic">⚖️</span>Masse volumique</div><div class="body">
+      <div class="formule">ρ = <span class="frac"><span class="n">m</span><span class="d">V</span></span> &nbsp;(kg/m³ ou g/cm³)</div>
+      <p>Permet de savoir si un corps <b>flotte</b> (ρ &lt; eau) ou coule.</p>
+    </div></div>
+    <div class="card c-vert"><div class="ch"><span class="ic">🥤</span>Mélanges &amp; solutions</div><div class="body">
+      <ul><li><b>Homogène</b> (1 phase visible) / <b>hétérogène</b> (plusieurs)</li>
+        <li>Soluté dissous dans un solvant → <b>solution</b></li>
+        <li>Concentration = <span class="frac"><span class="n">masse de soluté</span><span class="d">volume de solution</span></span></li></ul>
+    </div></div>
+  </div>
+</section>
+
+<!-- 2. ÉLECTRICITÉ -->
+<section class="sheet" id="f2">
+  <div class="ph h-bleu"><div class="n">2</div><div><h2>L'électricité</h2>
+    <div class="tag">circuits · tension · intensité · loi d'Ohm</div></div><div class="disc">PHYSIQUE-CHIMIE</div></div>
+  <div class="cols">
+    <div class="card c-bleu"><div class="ch"><span class="ic">🔌</span>Grandeurs de base</div><div class="body">
+      <ul><li><b>Intensité I</b> (ampère, A) — mesurée par un <b>ampèremètre</b> en série</li>
+        <li><b>Tension U</b> (volt, V) — mesurée par un <b>voltmètre</b> en dérivation</li></ul>
+    </div></div>
+    <div class="card c-orange"><div class="ch"><span class="ic">📐</span>La loi d'Ohm</div><div class="body">
+      <div class="formule">U = R × I</div>
+      <p>U en volts (V), R en ohms (Ω), I en ampères (A).</p>
+      <div class="ex"><b>Ex :</b> R=20 Ω, I=0,5 A → U = 20×0,5 = <b>10 V</b></div>
+    </div></div>
+    <div class="card c-vert"><div class="ch"><span class="ic">🔗</span>Série / dérivation</div><div class="body">
+      <table class="mini"><tr><th>Série</th><th>Dérivation</th></tr>
+        <tr><td>1 seule boucle</td><td>plusieurs branches</td></tr>
+        <tr><td>même I partout</td><td>même U aux bornes</td></tr>
+        <tr><td>1 lampe grille → tout s'éteint</td><td>indépendantes</td></tr></table>
+    </div></div>
+    <div class="card c-violet"><div class="ch"><span class="ic">⚡</span>Puissance &amp; énergie</div><div class="body">
+      <div class="formule">P = U × I &nbsp;(watt, W)</div>
+      <div class="formule">E = P × t &nbsp;(en J, ou kWh)</div>
+      <div class="piege">⚠ Convertir le temps ! 1 h = 3600 s. Pour des kWh, P en kW et t en h.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- 3. MÉCANIQUE -->
+<section class="sheet" id="f3">
+  <div class="ph h-violet"><div class="n">3</div><div><h2>Mécanique &amp; énergie</h2>
+    <div class="tag">vitesse · forces · poids · conversions d'énergie</div></div><div class="disc">PHYSIQUE-CHIMIE</div></div>
+  <div class="cols">
+    <div class="card c-bleu"><div class="ch"><span class="ic">🏃</span>Vitesse &amp; mouvement</div><div class="body">
+      <div class="formule">v = <span class="frac"><span class="n">d</span><span class="d">t</span></span> &nbsp;(m/s ou km/h)</div>
+      <p>Mouvement : uniforme (v constante), accéléré, ralenti. Relatif au <b>référentiel</b>.</p>
+    </div></div>
+    <div class="card c-orange"><div class="ch"><span class="ic">🧲</span>Les forces</div><div class="body">
+      <p>Une force peut : mettre en mouvement, arrêter, dévier, déformer.</p>
+      <p>Représentée par une <b>flèche</b> (point d'application, direction, sens, valeur en <b>newtons N</b>).</p>
+    </div></div>
+    <div class="card c-vert"><div class="ch"><span class="ic">🌍</span>Poids &amp; gravitation</div><div class="body">
+      <div class="formule">P = m × g</div>
+      <p>P en N, m en kg, g ≈ <b>9,8 N/kg</b> sur Terre.</p>
+      <div class="piege">⚠ Le <b>poids</b> (N) dépend de l'astre ; la <b>masse</b> (kg) ne change jamais.</div>
+    </div></div>
+    <div class="card c-cyan"><div class="ch"><span class="ic">🔋</span>L'énergie</div><div class="body">
+      <ul><li>Formes : cinétique (mouvement), de position, thermique, électrique, chimique…</li>
+        <li>Elle se <b>conserve</b> et se <b>convertit</b> (ex : barrage → électrique)</li>
+        <li>Énergie cinétique ↑ avec la masse et (surtout) la vitesse</li></ul>
+    </div></div>
+  </div>
+</section>
+
+<!-- 4. RÉACTIONS CHIMIQUES -->
+<section class="sheet" id="f4">
+  <div class="ph h-orange"><div class="n">4</div><div><h2>Les transformations chimiques</h2>
+    <div class="tag">réactions · conservation · combustions · pH</div></div><div class="disc">PHYSIQUE-CHIMIE</div></div>
+  <div class="cols">
+    <div class="card c-bleu"><div class="ch"><span class="ic">🧪</span>La réaction chimique</div><div class="body">
+      <div class="def">Des <b>réactifs</b> se transforment en <b>produits</b> ; de nouvelles espèces apparaissent.</div>
+      <p>réactifs → produits (ex : C + O₂ → CO₂)</p>
+    </div></div>
+    <div class="card c-vert"><div class="ch"><span class="ic">⚖️</span>Conservation de la masse</div><div class="body">
+      <p>Au cours d'une réaction, les atomes se <b>réorganisent</b> mais ne disparaissent pas :</p>
+      <div class="formule">masse réactifs = masse produits</div>
+      <div class="astuce">✔ C'est pourquoi on <b>équilibre</b> les équations (autant d'atomes de chaque côté).</div>
+    </div></div>
+    <div class="card c-orange"><div class="ch"><span class="ic">🔥</span>Les combustions</div><div class="body">
+      <ul><li>Besoin d'un <b>combustible</b> + <b>comburant</b> (dioxygène O₂)</li>
+        <li>Combustion du carbone → CO₂ (test : eau de chaux qui se trouble)</li></ul>
+    </div></div>
+    <div class="card c-violet"><div class="ch"><span class="ic">💧</span>Acides &amp; bases (pH)</div><div class="body">
+      <table class="mini"><tr><th>pH</th><th>Solution</th></tr>
+        <tr><td>&lt; 7</td><td>acide</td></tr><tr><td>= 7</td><td>neutre</td></tr><tr><td>&gt; 7</td><td>basique</td></tr></table>
+      <p>Mesuré au papier pH ou à la sonde.</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- 5. CORPS HUMAIN -->
+<section class="sheet" id="f5">
+  <div class="ph h-rose"><div class="n">5</div><div><h2>Le corps humain &amp; la santé</h2>
+    <div class="tag">nutrition · respiration · système nerveux · immunité</div></div><div class="disc">SVT</div></div>
+  <div class="cols">
+    <div class="card c-bleu"><div class="ch"><span class="ic">🍎</span>Digestion &amp; nutrition</div><div class="body">
+      <p>Les aliments sont <b>digérés</b> → nutriments → passent dans le sang (intestin grêle) → distribués aux organes.</p>
+      <div class="astuce">✔ Une alimentation équilibrée couvre les besoins (énergie, croissance).</div>
+    </div></div>
+    <div class="card c-cyan"><div class="ch"><span class="ic">🫁</span>Respiration &amp; circulation</div><div class="body">
+      <ul><li>Poumons : échanges gazeux (O₂ entre, CO₂ sort)</li>
+        <li>Le <b>sang</b> (cœur + vaisseaux) transporte O₂ et nutriments aux organes</li></ul>
+    </div></div>
+    <div class="card c-violet"><div class="ch"><span class="ic">🧠</span>Système nerveux</div><div class="body">
+      <ul><li>Cerveau + moelle épinière (centres) + nerfs</li>
+        <li>Message nerveux : <b>capteur → nerf → cerveau → réponse</b></li>
+        <li>Risques : drogues, alcool, manque de sommeil</li></ul>
+    </div></div>
+    <div class="card c-vert"><div class="ch"><span class="ic">🛡️</span>Immunité &amp; microbes</div><div class="body">
+      <ul><li>Micro-organismes : bactéries, virus (certains utiles : microbiote)</li>
+        <li>Le système immunitaire défend l'organisme (globules blancs, anticorps)</li>
+        <li><b>Vaccin</b> = protection préventive · <b>antibiotique</b> = contre les bactéries</li></ul>
+    </div></div>
+  </div>
+</section>
+
+<!-- 6. GÉNÉTIQUE -->
+<section class="sheet" id="f6">
+  <div class="ph h-vert"><div class="n">6</div><div><h2>Génétique &amp; hérédité</h2>
+    <div class="tag">ADN · chromosomes · gènes · transmission</div></div><div class="disc">SVT</div></div>
+  <div class="cols">
+    <div class="card c-bleu"><div class="ch"><span class="ic">🧬</span>L'information génétique</div><div class="body">
+      <ul><li>Dans le <b>noyau</b> des cellules : <b>chromosomes</b> (46 chez l'humain, soit 23 paires)</li>
+        <li>Chromosome = molécule d'<b>ADN</b></li>
+        <li><b>Gène</b> = portion d'ADN porteuse d'une information (ex : couleur des yeux)</li></ul>
+    </div></div>
+    <div class="card c-violet"><div class="ch"><span class="ic">👪</span>Hérédité</div><div class="body">
+      <p>L'enfant reçoit <b>la moitié</b> de ses chromosomes de chaque parent (cellules reproductrices).</p>
+      <div class="def">C'est pourquoi il ressemble à ses parents tout en étant unique.</div>
+    </div></div>
+    <div class="card c-orange"><div class="ch"><span class="ic">🌱</span>Diversité &amp; évolution</div><div class="body">
+      <ul><li>Les êtres vivants partagent un <b>plan d'organisation</b> commun</li>
+        <li>Les espèces <b>évoluent</b> au cours du temps (sélection naturelle)</li>
+        <li>Les fossiles témoignent de cette évolution</li></ul>
+    </div></div>
+  </div>
+</section>
+
+<!-- 7. TERRE / CLIMAT -->
+<section class="sheet" id="f7">
+  <div class="ph h-cyan"><div class="n">7</div><div><h2>La Terre, le climat &amp; l'environnement</h2>
+    <div class="tag">tectonique · risques · biodiversité · climat</div></div><div class="disc">SVT</div></div>
+  <div class="cols">
+    <div class="card c-orange"><div class="ch"><span class="ic">🌋</span>La Terre active</div><div class="body">
+      <ul><li>Surface = <b>plaques tectoniques</b> mobiles</li>
+        <li>Leurs mouvements → <b>séismes</b> et <b>volcans</b> (surtout aux frontières)</li></ul>
+    </div></div>
+    <div class="card c-rose"><div class="ch"><span class="ic">⚠️</span>Risques &amp; prévention</div><div class="body">
+      <div class="def"><b>Aléa</b> (phénomène) + <b>enjeux</b> (population) = <b>risque</b>.</div>
+      <p>Prévention : surveillance, normes de construction, alerte, éducation.</p>
+    </div></div>
+    <div class="card c-vert"><div class="ch"><span class="ic">🌿</span>Écosystèmes &amp; biodiversité</div><div class="body">
+      <p>Un <b>écosystème</b> = êtres vivants + milieu, reliés par des relations (alimentaires…). La biodiversité est fragile.</p>
+    </div></div>
+    <div class="card c-bleu"><div class="ch"><span class="ic">🌡️</span>Le changement climatique</div><div class="body">
+      <ul><li>Activités humaines → <b>gaz à effet de serre</b> (CO₂) → réchauffement</li>
+        <li>Conséquences : fonte des glaces, hausse du niveau marin, événements extrêmes</li></ul>
+      <div class="astuce">✔ Solutions : énergies renouvelables, sobriété, préservation des forêts.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- 8. TECHNO -->
+<section class="sheet" id="f8">
+  <div class="ph h-violet"><div class="n">8</div><div><h2>Technologie &amp; programmation</h2>
+    <div class="tag">objet technique · chaînes · capteurs · algorithmes</div></div><div class="disc">TECHNOLOGIE</div></div>
+  <div class="cols">
+    <div class="card c-bleu"><div class="ch"><span class="ic">🛠️</span>L'objet technique</div><div class="body">
+      <p>Répond à un <b>besoin</b>. On distingue sa <b>fonction d'usage</b> (à quoi il sert) et sa <b>fonction d'estime</b> (ce qu'on aime).</p>
+      <p>Il doit respecter des <b>contraintes</b> (coût, sécurité, environnement…).</p>
+    </div></div>
+    <div class="card c-cyan"><div class="ch"><span class="ic">🔄</span>Chaîne d'information &amp; d'énergie</div><div class="body">
+      <ul><li><b>Chaîne d'information :</b> acquérir (capteur) → traiter → communiquer</li>
+        <li><b>Chaîne d'énergie :</b> alimenter → distribuer → convertir → agir (actionneur)</li></ul>
+    </div></div>
+    <div class="card c-vert"><div class="ch"><span class="ic">🤖</span>Capteurs &amp; actionneurs</div><div class="body">
+      <ul><li><b>Capteur</b> : mesure (température, lumière, présence)</li>
+        <li><b>Actionneur</b> : agit (moteur, lampe, buzzer)</li>
+        <li>Pilotés par un programme (domotique, robotique)</li></ul>
+    </div></div>
+    <div class="card c-orange"><div class="ch"><span class="ic">💻</span>Programmation</div><div class="body">
+      <ul><li><b>Algorithme</b> : suite d'instructions (boucles, conditions « si… alors »)</li>
+        <li>Variables, tests sur les capteurs, actions des actionneurs</li></ul>
+      <div class="astuce">✔ Pour lire un programme : suis-le pas à pas avec un tableau d'évolution (comme en maths !).</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- MÉTHODES -->
+<section class="sheet" id="meth">
+  <div class="ph h-air"><div class="n">★</div><div><h2>Méthodes-types de l'épreuve scientifique</h2>
+    <div class="tag">exploiter un document · raisonner · gérer les unités</div></div></div>
+
+  <div class="mexo"><div class="mh">📊 Exploiter un document / un graphique<span class="lvl">Méthode</span></div><div class="mb">
+    <div class="step"><div class="sn">1</div><div>Je lis le <b>titre</b>, les <b>axes</b> et les <b>unités</b> du graphique / tableau.</div></div>
+    <div class="step"><div class="sn">2</div><div>Je <b>prélève des valeurs précises</b> (« quand x vaut…, y vaut… »).</div></div>
+    <div class="step"><div class="sn">3</div><div>Je <b>décris l'évolution</b> (augmente, diminue, constant) puis je <b>conclus</b> par rapport à la question.</div></div>
+    <div class="concl">✔ Une réponse scientifique = une observation chiffrée + une interprétation.</div>
+  </div></div>
+
+  <div class="mexo"><div class="mh">🧮 Réussir un calcul (PC)<span class="lvl">Méthode</span></div><div class="mb">
+    <div class="step"><div class="sn">1</div><div>J'écris la <b>formule</b> littérale (U=R×I, P=m×g, v=d/t…).</div></div>
+    <div class="step"><div class="sn">2</div><div>Je vérifie/convertis les <b>unités</b> (km→m, min→s, g→kg).</div></div>
+    <div class="step"><div class="sn">3</div><div>Je remplace, je calcule, je donne le résultat <b>avec l'unité</b>.</div></div>
+    <div class="concl">✔ Un résultat sans unité = faux. Vérifie l'ordre de grandeur.</div>
+  </div></div>
+
+  <div class="mexo"><div class="mh">🔍 Raisonner (SVT / Techno)<span class="lvl">Méthode</span></div><div class="mb">
+    <div class="step"><div class="sn">1</div><div>Je relie les informations du document à mes <b>connaissances du cours</b>.</div></div>
+    <div class="step"><div class="sn">2</div><div>Je construis un <b>raisonnement logique</b> : « donc… », « car… », « ce qui explique… ».</div></div>
+    <div class="concl">✔ Reste précis : utilise le bon <b>vocabulaire scientifique</b>.</div>
+  </div></div>
+</section>
+
+<!-- PLANNING -->
+<section class="sheet" id="plan">
+  <div class="ph h-bleu"><div class="n">📅</div><div><h2>Planning de révision — J-15 → jour J</h2>
+    <div class="tag">~40 min/jour · comprends puis applique</div></div></div>
+  <div class="plan">
+    <div class="day"><div class="pin j1"><span class="big">J-15</span><span class="sm">à J-13</span></div><div class="dc"><b>⚛️ Matière &amp; électricité</b> <span class="meta">fiches 1–2</span><ul><li>Atomes/états, loi d'Ohm, puissance/énergie</li></ul></div></div>
+    <div class="day"><div class="pin j2"><span class="big">J-12</span><span class="sm">à J-10</span></div><div class="dc"><b>🌍 Mécanique &amp; chimie</b> <span class="meta">fiches 3–4</span><ul><li>Vitesse, poids (P=m×g), réactions &amp; conservation</li></ul></div></div>
+    <div class="day"><div class="pin j3"><span class="big">J-9</span><span class="sm">à J-7</span></div><div class="dc"><b>🧬 SVT : corps &amp; génétique</b> <span class="meta">fiches 5–6</span></div></div>
+    <div class="day"><div class="pin j4"><span class="big">J-6</span><span class="sm">à J-4</span></div><div class="dc"><b>🌡️ Terre, climat &amp; techno</b> <span class="meta">fiches 7–8</span> + méthodes</div></div>
+    <div class="day"><div class="pin j5"><span class="big">J-3</span><span class="sm">à J-2</span></div><div class="dc"><b>🔁 Entraînement</b><ul><li>Refais le <b>QCM</b> + un exercice avec graphique &amp; calcul</li></ul></div></div>
+    <div class="day"><div class="pin jd"><span class="big">J-1</span><span class="sm">veille</span></div><div class="dc"><b>😌 Antisèche</b> — relis les formules &amp; unités, calculatrice prête 🌙</div></div>
+  </div>
+  <div class="astuce" style="margin-top:10px;">✔ Le jour J : <b>2 disciplines</b> seulement. Mais révise les 3 — tu sauras laquelle tomber le matin !</div>
+</section>
+
+<!-- QCM -->
+<section class="sheet" id="qcm">
+  <div class="ph h-rose"><div class="n">❓</div><div><h2>QCM d'auto-évaluation — 12 questions</h2>
+    <div class="tag">entoure ta réponse · corrigé en bas de page</div></div></div>
+  <div class="qgrid">
+    <div class="q"><div class="qq"><span class="qn">1</span>Une molécule d'eau s'écrit :</div><div class="opt">a) H₂O &nbsp; b) CO₂ &nbsp; c) O₂</div></div>
+    <div class="q"><div class="qq"><span class="qn">2</span>Solide → liquide, c'est la :</div><div class="opt">a) vaporisation &nbsp; b) fusion &nbsp; c) solidification</div></div>
+    <div class="q"><div class="qq"><span class="qn">3</span>La loi d'Ohm s'écrit :</div><div class="opt">a) U=R×I &nbsp; b) P=U×I &nbsp; c) E=P×t</div></div>
+    <div class="q"><div class="qq"><span class="qn">4</span>L'intensité se mesure avec un :</div><div class="opt">a) voltmètre &nbsp; b) ampèremètre &nbsp; c) thermomètre</div></div>
+    <div class="q"><div class="qq"><span class="qn">5</span>Le poids se calcule par :</div><div class="opt">a) P=m×g &nbsp; b) P=m/V &nbsp; c) P=U×I</div></div>
+    <div class="q"><div class="qq"><span class="qn">6</span>Lors d'une réaction chimique, la masse :</div><div class="opt">a) augmente &nbsp; b) se conserve &nbsp; c) diminue</div></div>
+    <div class="q"><div class="qq"><span class="qn">7</span>Un pH de 3 correspond à une solution :</div><div class="opt">a) acide &nbsp; b) neutre &nbsp; c) basique</div></div>
+    <div class="q"><div class="qq"><span class="qn">8</span>L'humain possède … chromosomes :</div><div class="opt">a) 23 &nbsp; b) 46 &nbsp; c) 64</div></div>
+    <div class="q"><div class="qq"><span class="qn">9</span>Un gène est porté par :</div><div class="opt">a) l'ADN &nbsp; b) un globule rouge &nbsp; c) un nerf</div></div>
+    <div class="q"><div class="qq"><span class="qn">10</span>Séismes et volcans s'expliquent par :</div><div class="opt">a) la météo &nbsp; b) les plaques tectoniques &nbsp; c) la Lune</div></div>
+    <div class="q"><div class="qq"><span class="qn">11</span>Le gaz responsable de l'effet de serre cité :</div><div class="opt">a) O₂ &nbsp; b) CO₂ &nbsp; c) N₂</div></div>
+    <div class="q"><div class="qq"><span class="qn">12</span>Un capteur sert à :</div><div class="opt">a) agir (moteur) &nbsp; b) mesurer une grandeur &nbsp; c) alimenter</div></div>
+  </div>
+  <div class="corr"><h3>✅ Corrigé</h3>
+    <div class="row">
+      <span><b>1.</b> a (H₂O)</span><span><b>2.</b> b (fusion)</span><span><b>3.</b> a (U=R×I)</span>
+      <span><b>4.</b> b (ampèremètre)</span><span><b>5.</b> a (P=m×g)</span><span><b>6.</b> b (se conserve)</span>
+      <span><b>7.</b> a (acide)</span><span><b>8.</b> b (46)</span><span><b>9.</b> a (l'ADN)</span>
+      <span><b>10.</b> b (plaques)</span><span><b>11.</b> b (CO₂)</span><span><b>12.</b> b (mesurer)</span>
+    </div>
+  </div>
+  <div class="astuce" style="margin-top:9px;">✔ <b>10–12 :</b> au top 🎉 · <b>6–9 :</b> revois les fiches · <b>&lt;6 :</b> reprends le planning. #AIRHEAD4LIFE</div>
+</section>
+
+</body>
+</html>
