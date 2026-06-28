@@ -77,9 +77,15 @@
 #mq .bdg span{font-size:12px;font-weight:800}
 #mq .bdg i{font-size:10px;opacity:.75;font-style:normal;text-align:center}
 #mq .bdg.earned{opacity:1;filter:none;background:rgba(34,197,94,.16);border-color:rgba(34,197,94,.55);box-shadow:0 6px 18px rgba(34,197,94,.22);transform:translateY(-2px)}
-#mq .bdg.earned.hero{background:rgba(168,85,247,.18);border-color:rgba(168,85,247,.6);box-shadow:0 6px 20px rgba(168,85,247,.28)}
+#mq .bdg.earned.hero{background:rgba(168,85,247,.18);border-color:rgba(168,85,247,.6);box-shadow:0 6px 20px rgba(168,85,247,.28);animation:bpop .5s ease}
+@keyframes bpop{0%{transform:scale(.8)}60%{transform:scale(1.12)}100%{transform:scale(1) translateY(-2px)}}
 #mq .q.gd label:has(input[data-ok]){background:rgba(34,197,94,.16);border-color:rgba(34,197,94,.55)}
 #mq .q.bd label.pick{background:rgba(239,68,68,.16);border-color:rgba(239,68,68,.5)}
+.confetti-wrap{position:fixed;inset:0;pointer-events:none;z-index:99999;overflow:hidden}
+.confetti-wrap i{position:absolute;top:-14px;width:9px;height:14px;border-radius:2px;opacity:.95;animation:cfall linear forwards}
+@keyframes cfall{to{transform:translateY(108vh) rotate(620deg);opacity:.9}}
+.cf-toast{position:fixed;left:50%;top:18%;transform:translateX(-50%);z-index:99999;background:rgba(168,85,247,.95);color:#fff;font-weight:800;padding:12px 18px;border-radius:14px;box-shadow:0 10px 30px rgba(168,85,247,.4);font-size:15px;animation:cft 3s ease forwards;pointer-events:none}
+@keyframes cft{0%{opacity:0;transform:translateX(-50%) translateY(-8px)}12%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-8px)}}
 </style>
 </head>
 <body>
@@ -257,22 +263,39 @@
 <script>
 (function(){
  var root=document.getElementById('mq'); if(!root) return;
+ var sec=root.querySelector('.sec')||root;
+ var anchor=root.querySelector('.qscore');
  var qs=[].slice.call(root.querySelectorAll('.q'));
- var total=qs.length, stat=document.getElementById('qnums'), bar=document.getElementById('qbar');
+ // ---- ordre aleatoire a chaque ouverture (Fisher-Yates) ----
+ for(var i=qs.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=qs[i];qs[i]=qs[j];qs[j]=tmp;}
+ qs.forEach(function(q,idx){var n=q.querySelector('.qn');if(n)n.textContent=idx+1;if(anchor)sec.insertBefore(q,anchor);});
+ // corrige reconstruit dans le nouvel ordre
+ var corr=root.querySelector('.reveal .corr');
+ if(corr){corr.innerHTML=qs.map(function(q,idx){var ok=q.querySelector('input[data-ok]');var t=ok?ok.parentNode.textContent.trim():'?';return '<b>'+(idx+1)+'.</b> '+t;}).join(' \u00b7 ')+'.';}
+ var total=qs.length, stat=document.getElementById('qnums'), bar=document.getElementById('qbar'), wasHero=false;
+ function confetti(){
+  var box=document.createElement('div');box.className='confetti-wrap';
+  var cols=['#f472b6','#a855f7','#22c55e','#fbbf24','#38bdf8','#fb7185'];
+  for(var k=0;k<110;k++){var p=document.createElement('i');p.style.left=(Math.random()*100)+'vw';p.style.background=cols[k%cols.length];p.style.animationDuration=(2.2+Math.random()*1.6)+'s';p.style.animationDelay=(Math.random()*0.5)+'s';p.style.width=(6+Math.random()*6)+'px';box.appendChild(p);}
+  document.body.appendChild(box);
+  var toast=document.createElement('div');toast.className='cf-toast';toast.textContent='\ud83e\uddb8 Badge AIRHEAD4LIFE debloque ! #AIRHEAD4LIFE';document.body.appendChild(toast);
+  setTimeout(function(){box.remove();toast.remove();},3600);
+ }
  function up(){
   var a=0,c=0;
   qs.forEach(function(q){
    var sel=q.querySelector('input:checked');
    q.classList.remove('gd','bd');
    q.querySelectorAll('label').forEach(function(l){l.classList.remove('pick');});
-   if(sel){a++; var ok=sel.hasAttribute('data-ok'); if(ok)c++;
-     q.classList.add(ok?'gd':'bd'); sel.closest('label').classList.add('pick');}
+   if(sel){a++;var ok=sel.hasAttribute('data-ok');if(ok)c++;q.classList.add(ok?'gd':'bd');sel.closest('label').classList.add('pick');}
   });
   var p=a?Math.round(c/a*100):0;
-  stat.innerHTML=' — <b>'+a+'/'+total+'</b> répondues · <b>'+c+'</b> justes · <b>'+p+'%</b>';
-  bar.style.width=(a/total*100)+'%';
+  if(stat)stat.innerHTML=' \u2014 <b>'+a+'/'+total+'</b> repondues \u00b7 <b>'+c+'</b> justes \u00b7 <b>'+p+'%</b>';
+  if(bar)bar.style.width=(a/total*100)+'%';
   var cond={b8:a>=8,b16:a>=16,ball:a>=total,s75:a>=8&&p>=75,exp:a>=16&&p>=90,hero:a>=total&&p>=90};
   document.querySelectorAll('#mq .bdg').forEach(function(b){b.classList.toggle('earned',!!cond[b.dataset.b]);});
+  if(cond.hero&&!wasHero)confetti();
+  wasHero=cond.hero;
  }
  root.addEventListener('change',up); up();
 })();
