@@ -88,12 +88,15 @@
 #mq label.right::after{content:" \2713";font-weight:900;color:#16a34a}
 #mq .q.bd label.pick{background:rgba(239,68,68,.16)!important;border-color:rgba(239,68,68,.55)!important}
 #mq .q.bd label.pick::after{content:" \2717";font-weight:900;color:#dc2626}
+#mq .q.locked label{cursor:default}
+#mq .q.locked label:not(.pick):not(.right){opacity:.55}
 #mq .q.bd{animation:qshake .4s}
 @keyframes qshake{10%,90%{transform:translateX(-2px)}30%,70%{transform:translateX(3px)}50%{transform:translateX(-3px)}}
 #mq .verdict{display:none;margin-top:5px;font-size:12px;font-weight:800}
 #mq .q.gd .verdict,#mq .q.bd .verdict{display:block}
 #mq .q.gd .verdict{color:#16a34a}
 #mq .q.bd .verdict{color:#dc2626}
+#mq .verdict .ex{font-weight:600;opacity:.9}
 .confetti-wrap{position:fixed;inset:0;pointer-events:none;z-index:99999;overflow:hidden}
 .confetti-wrap i{position:absolute;top:-14px;width:9px;height:14px;border-radius:2px;opacity:.95;animation:cfall linear forwards}
 @keyframes cfall{to{transform:translateY(108vh) rotate(620deg);opacity:.9}}
@@ -219,38 +222,38 @@
 </div></details>
 
 <details id="mq" class="s-rose"><summary><span class="ico">❓</span>QCM d'auto-évaluation<span class="cv">›</span></summary><div class="sec">
-  <div class="q"><div class="qq"><span class="qn">1</span>Une molécule d'eau s'écrit :</div><label><input type="radio" name="q1" data-ok="1">H₂O</label><label><input type="radio" name="q1">CO₂</label><label><input type="radio" name="q1">O₂</label></div>
-  <div class="q"><div class="qq"><span class="qn">2</span>Solide → liquide, c'est la :</div><label><input type="radio" name="q2">vaporisation</label><label><input type="radio" name="q2" data-ok="1">fusion</label><label><input type="radio" name="q2">solidification</label></div>
-  <div class="q"><div class="qq"><span class="qn">3</span>La loi d'Ohm s'écrit :</div><label><input type="radio" name="q3" data-ok="1">U=R×I</label><label><input type="radio" name="q3">P=U×I</label><label><input type="radio" name="q3">E=P×t</label></div>
-  <div class="q"><div class="qq"><span class="qn">4</span>L'intensité se mesure avec un :</div><label><input type="radio" name="q4">voltmètre</label><label><input type="radio" name="q4" data-ok="1">ampèremètre</label><label><input type="radio" name="q4">thermomètre</label></div>
-  <div class="q"><div class="qq"><span class="qn">5</span>Le poids se calcule par :</div><label><input type="radio" name="q5" data-ok="1">P=m×g</label><label><input type="radio" name="q5">P=m/V</label><label><input type="radio" name="q5">P=U×I</label></div>
-  <div class="q"><div class="qq"><span class="qn">6</span>Lors d'une réaction chimique, la masse :</div><label><input type="radio" name="q6">augmente</label><label><input type="radio" name="q6" data-ok="1">se conserve</label><label><input type="radio" name="q6">diminue</label></div>
-  <div class="q"><div class="qq"><span class="qn">7</span>Un pH de 3 correspond à une solution :</div><label><input type="radio" name="q7" data-ok="1">acide</label><label><input type="radio" name="q7">neutre</label><label><input type="radio" name="q7">basique</label></div>
-  <div class="q"><div class="qq"><span class="qn">8</span>L'humain possède … chromosomes :</div><label><input type="radio" name="q8">23</label><label><input type="radio" name="q8" data-ok="1">46</label><label><input type="radio" name="q8">64</label></div>
-  <div class="q"><div class="qq"><span class="qn">9</span>Un gène est porté par :</div><label><input type="radio" name="q9" data-ok="1">l'ADN</label><label><input type="radio" name="q9">un globule rouge</label><label><input type="radio" name="q9">un nerf</label></div>
-  <div class="q"><div class="qq"><span class="qn">10</span>Séismes et volcans s'expliquent par :</div><label><input type="radio" name="q10">la météo</label><label><input type="radio" name="q10" data-ok="1">les plaques tectoniques</label><label><input type="radio" name="q10">la Lune</label></div>
-  <div class="q"><div class="qq"><span class="qn">11</span>Le gaz responsable de l'effet de serre cité :</div><label><input type="radio" name="q11">O₂</label><label><input type="radio" name="q11" data-ok="1">CO₂</label><label><input type="radio" name="q11">N₂</label></div>
-  <div class="q"><div class="qq"><span class="qn">12</span>Un capteur sert à :</div><label><input type="radio" name="q12">agir (moteur)</label><label><input type="radio" name="q12" data-ok="1">mesurer une grandeur</label><label><input type="radio" name="q12">alimenter</label></div>
-  <div class="q"><div class="qq"><span class="qn">13</span>Formule du dioxyde de carbone :</div><label><input type="radio" name="q13" data-ok="1">CO₂</label><label><input type="radio" name="q13">H₂O</label><label><input type="radio" name="q13">O₂</label></div>
-  <div class="q"><div class="qq"><span class="qn">14</span>Unité de la tension électrique :</div><label><input type="radio" name="q14">l'ampère</label><label><input type="radio" name="q14" data-ok="1">le volt</label><label><input type="radio" name="q14">le watt</label></div>
-  <div class="q"><div class="qq"><span class="qn">15</span>La vitesse se calcule par :</div><label><input type="radio" name="q15" data-ok="1">v = d/t</label><label><input type="radio" name="q15">v = d×t</label><label><input type="radio" name="q15">v = t/d</label></div>
-  <div class="q"><div class="qq"><span class="qn">16</span>Liquide → gaz, c'est la :</div><label><input type="radio" name="q16">fusion</label><label><input type="radio" name="q16" data-ok="1">vaporisation</label><label><input type="radio" name="q16">condensation</label></div>
-  <div class="q"><div class="qq"><span class="qn">17</span>Un atome est neutre : autant de protons que d':</div><label><input type="radio" name="q17">neutrons</label><label><input type="radio" name="q17" data-ok="1">électrons</label><label><input type="radio" name="q17">ions</label></div>
-  <div class="q"><div class="qq"><span class="qn">18</span>Unité de la puissance électrique :</div><label><input type="radio" name="q18" data-ok="1">le watt</label><label><input type="radio" name="q18">le volt</label><label><input type="radio" name="q18">l'ohm</label></div>
-  <div class="q"><div class="qq"><span class="qn">19</span>La respiration rejette du :</div><label><input type="radio" name="q19">dioxygène</label><label><input type="radio" name="q19" data-ok="1">dioxyde de carbone</label><label><input type="radio" name="q19">diazote</label></div>
-  <div class="q"><div class="qq"><span class="qn">20</span>Les gamètes possèdent … chromosomes :</div><label><input type="radio" name="q20" data-ok="1">23</label><label><input type="radio" name="q20">46</label><label><input type="radio" name="q20">92</label></div>
-  <div class="q"><div class="qq"><span class="qn">21</span>Une solution de pH = 7 est :</div><label><input type="radio" name="q21">acide</label><label><input type="radio" name="q21" data-ok="1">neutre</label><label><input type="radio" name="q21">basique</label></div>
-  <div class="q"><div class="qq"><span class="qn">22</span>La lumière blanche est composée :</div><label><input type="radio" name="q22">d'une seule couleur</label><label><input type="radio" name="q22" data-ok="1">de plusieurs couleurs</label><label><input type="radio" name="q22">d'aucune couleur</label></div>
-  <div class="q"><div class="qq"><span class="qn">23</span>L'énergie solaire est d'origine :</div><label><input type="radio" name="q23" data-ok="1">renouvelable</label><label><input type="radio" name="q23">fossile</label><label><input type="radio" name="q23">nucléaire</label></div>
-  <div class="q"><div class="qq"><span class="qn">24</span>Circuit en série : si une lampe grille, les autres :</div><label><input type="radio" name="q24">brillent plus</label><label><input type="radio" name="q24" data-ok="1">s'éteignent</label><label><input type="radio" name="q24">ne changent pas</label></div>
-  <div class="q"><div class="qq"><span class="qn">25</span>🔥 Dans P = m×g sur Terre, g vaut environ :</div><label><input type="radio" name="q25" data-ok="1">10 N/kg</label><label><input type="radio" name="q25">10 kg</label><label><input type="radio" name="q25">1 N</label></div>
-  <div class="q"><div class="qq"><span class="qn">26</span>🔥 Dans U = R×I, si R double (I constant), U :</div><label><input type="radio" name="q26" data-ok="1">double</label><label><input type="radio" name="q26">est divisée par 2</label><label><input type="radio" name="q26">ne change pas</label></div>
-  <div class="q"><div class="qq"><span class="qn">27</span>🔥 L'ADN est contenu principalement dans :</div><label><input type="radio" name="q27" data-ok="1">le noyau de la cellule</label><label><input type="radio" name="q27">la membrane</label><label><input type="radio" name="q27">le cytoplasme seul</label></div>
-  <div class="q"><div class="qq"><span class="qn">28</span>🔥 Une transformation chimique se traduit par :</div><label><input type="radio" name="q28">un changement d'état</label><label><input type="radio" name="q28" data-ok="1">l'apparition de nouvelles espèces chimiques</label><label><input type="radio" name="q28">un simple déplacement</label></div>
-  <div class="q"><div class="qq"><span class="qn">29</span>🔥 L'unité d'énergie est :</div><label><input type="radio" name="q29" data-ok="1">le joule (J)</label><label><input type="radio" name="q29">le watt (W)</label><label><input type="radio" name="q29">le newton (N)</label></div>
-  <div class="q"><div class="qq"><span class="qn">30</span>🔥 Équilibrer : 2 H₂ + O₂ → :</div><label><input type="radio" name="q30">H₂O</label><label><input type="radio" name="q30" data-ok="1">2 H₂O</label><label><input type="radio" name="q30">2 HO</label></div>
-  <div class="q"><div class="qq"><span class="qn">31</span>🔥 Un alternateur convertit l'énergie :</div><label><input type="radio" name="q31" data-ok="1">mécanique en électrique</label><label><input type="radio" name="q31">électrique en lumineuse</label><label><input type="radio" name="q31">chimique en thermique</label></div>
-  <div class="q"><div class="qq"><span class="qn">32</span>🔥 Deux résistors en série : la résistance totale :</div><label><input type="radio" name="q32" data-ok="1">augmente (R₁+R₂)</label><label><input type="radio" name="q32">diminue</label><label><input type="radio" name="q32">reste R₁</label></div>
+  <div class="q" data-exp="H₂O"><div class="qq"><span class="qn">1</span>Une molécule d'eau s'écrit :</div><label><input type="radio" name="q1" data-ok="1">H₂O</label><label><input type="radio" name="q1">CO₂</label><label><input type="radio" name="q1">O₂</label></div>
+  <div class="q" data-exp="fusion"><div class="qq"><span class="qn">2</span>Solide → liquide, c'est la :</div><label><input type="radio" name="q2">vaporisation</label><label><input type="radio" name="q2" data-ok="1">fusion</label><label><input type="radio" name="q2">solidification</label></div>
+  <div class="q" data-exp="U=R×I"><div class="qq"><span class="qn">3</span>La loi d'Ohm s'écrit :</div><label><input type="radio" name="q3" data-ok="1">U=R×I</label><label><input type="radio" name="q3">P=U×I</label><label><input type="radio" name="q3">E=P×t</label></div>
+  <div class="q" data-exp="ampèremètre"><div class="qq"><span class="qn">4</span>L'intensité se mesure avec un :</div><label><input type="radio" name="q4">voltmètre</label><label><input type="radio" name="q4" data-ok="1">ampèremètre</label><label><input type="radio" name="q4">thermomètre</label></div>
+  <div class="q" data-exp="P=m×g"><div class="qq"><span class="qn">5</span>Le poids se calcule par :</div><label><input type="radio" name="q5" data-ok="1">P=m×g</label><label><input type="radio" name="q5">P=m/V</label><label><input type="radio" name="q5">P=U×I</label></div>
+  <div class="q" data-exp="se conserve"><div class="qq"><span class="qn">6</span>Lors d'une réaction chimique, la masse :</div><label><input type="radio" name="q6">augmente</label><label><input type="radio" name="q6" data-ok="1">se conserve</label><label><input type="radio" name="q6">diminue</label></div>
+  <div class="q" data-exp="acide"><div class="qq"><span class="qn">7</span>Un pH de 3 correspond à une solution :</div><label><input type="radio" name="q7" data-ok="1">acide</label><label><input type="radio" name="q7">neutre</label><label><input type="radio" name="q7">basique</label></div>
+  <div class="q" data-exp="46"><div class="qq"><span class="qn">8</span>L'humain possède … chromosomes :</div><label><input type="radio" name="q8">23</label><label><input type="radio" name="q8" data-ok="1">46</label><label><input type="radio" name="q8">64</label></div>
+  <div class="q" data-exp="l'ADN"><div class="qq"><span class="qn">9</span>Un gène est porté par :</div><label><input type="radio" name="q9" data-ok="1">l'ADN</label><label><input type="radio" name="q9">un globule rouge</label><label><input type="radio" name="q9">un nerf</label></div>
+  <div class="q" data-exp="plaques"><div class="qq"><span class="qn">10</span>Séismes et volcans s'expliquent par :</div><label><input type="radio" name="q10">la météo</label><label><input type="radio" name="q10" data-ok="1">les plaques tectoniques</label><label><input type="radio" name="q10">la Lune</label></div>
+  <div class="q" data-exp="CO₂"><div class="qq"><span class="qn">11</span>Le gaz responsable de l'effet de serre cité :</div><label><input type="radio" name="q11">O₂</label><label><input type="radio" name="q11" data-ok="1">CO₂</label><label><input type="radio" name="q11">N₂</label></div>
+  <div class="q" data-exp="mesurer"><div class="qq"><span class="qn">12</span>Un capteur sert à :</div><label><input type="radio" name="q12">agir (moteur)</label><label><input type="radio" name="q12" data-ok="1">mesurer une grandeur</label><label><input type="radio" name="q12">alimenter</label></div>
+  <div class="q" data-exp="CO₂"><div class="qq"><span class="qn">13</span>Formule du dioxyde de carbone :</div><label><input type="radio" name="q13" data-ok="1">CO₂</label><label><input type="radio" name="q13">H₂O</label><label><input type="radio" name="q13">O₂</label></div>
+  <div class="q" data-exp="le volt"><div class="qq"><span class="qn">14</span>Unité de la tension électrique :</div><label><input type="radio" name="q14">l'ampère</label><label><input type="radio" name="q14" data-ok="1">le volt</label><label><input type="radio" name="q14">le watt</label></div>
+  <div class="q" data-exp="v = d/t"><div class="qq"><span class="qn">15</span>La vitesse se calcule par :</div><label><input type="radio" name="q15" data-ok="1">v = d/t</label><label><input type="radio" name="q15">v = d×t</label><label><input type="radio" name="q15">v = t/d</label></div>
+  <div class="q" data-exp="vaporisation"><div class="qq"><span class="qn">16</span>Liquide → gaz, c'est la :</div><label><input type="radio" name="q16">fusion</label><label><input type="radio" name="q16" data-ok="1">vaporisation</label><label><input type="radio" name="q16">condensation</label></div>
+  <div class="q" data-exp="électrons"><div class="qq"><span class="qn">17</span>Un atome est neutre : autant de protons que d':</div><label><input type="radio" name="q17">neutrons</label><label><input type="radio" name="q17" data-ok="1">électrons</label><label><input type="radio" name="q17">ions</label></div>
+  <div class="q" data-exp="le watt"><div class="qq"><span class="qn">18</span>Unité de la puissance électrique :</div><label><input type="radio" name="q18" data-ok="1">le watt</label><label><input type="radio" name="q18">le volt</label><label><input type="radio" name="q18">l'ohm</label></div>
+  <div class="q" data-exp="CO₂"><div class="qq"><span class="qn">19</span>La respiration rejette du :</div><label><input type="radio" name="q19">dioxygène</label><label><input type="radio" name="q19" data-ok="1">dioxyde de carbone</label><label><input type="radio" name="q19">diazote</label></div>
+  <div class="q" data-exp="23"><div class="qq"><span class="qn">20</span>Les gamètes possèdent … chromosomes :</div><label><input type="radio" name="q20" data-ok="1">23</label><label><input type="radio" name="q20">46</label><label><input type="radio" name="q20">92</label></div>
+  <div class="q" data-exp="neutre"><div class="qq"><span class="qn">21</span>Une solution de pH = 7 est :</div><label><input type="radio" name="q21">acide</label><label><input type="radio" name="q21" data-ok="1">neutre</label><label><input type="radio" name="q21">basique</label></div>
+  <div class="q" data-exp="plusieurs couleurs"><div class="qq"><span class="qn">22</span>La lumière blanche est composée :</div><label><input type="radio" name="q22">d'une seule couleur</label><label><input type="radio" name="q22" data-ok="1">de plusieurs couleurs</label><label><input type="radio" name="q22">d'aucune couleur</label></div>
+  <div class="q" data-exp="renouvelable"><div class="qq"><span class="qn">23</span>L'énergie solaire est d'origine :</div><label><input type="radio" name="q23" data-ok="1">renouvelable</label><label><input type="radio" name="q23">fossile</label><label><input type="radio" name="q23">nucléaire</label></div>
+  <div class="q" data-exp="s'éteignent"><div class="qq"><span class="qn">24</span>Circuit en série : si une lampe grille, les autres :</div><label><input type="radio" name="q24">brillent plus</label><label><input type="radio" name="q24" data-ok="1">s'éteignent</label><label><input type="radio" name="q24">ne changent pas</label></div>
+  <div class="q" data-exp="≈10 N/kg"><div class="qq"><span class="qn">25</span>🔥 Dans P = m×g sur Terre, g vaut environ :</div><label><input type="radio" name="q25" data-ok="1">10 N/kg</label><label><input type="radio" name="q25">10 kg</label><label><input type="radio" name="q25">1 N</label></div>
+  <div class="q" data-exp="double"><div class="qq"><span class="qn">26</span>🔥 Dans U = R×I, si R double (I constant), U :</div><label><input type="radio" name="q26" data-ok="1">double</label><label><input type="radio" name="q26">est divisée par 2</label><label><input type="radio" name="q26">ne change pas</label></div>
+  <div class="q" data-exp="le noyau"><div class="qq"><span class="qn">27</span>🔥 L'ADN est contenu principalement dans :</div><label><input type="radio" name="q27" data-ok="1">le noyau de la cellule</label><label><input type="radio" name="q27">la membrane</label><label><input type="radio" name="q27">le cytoplasme seul</label></div>
+  <div class="q" data-exp="nouvelles espèces"><div class="qq"><span class="qn">28</span>🔥 Une transformation chimique se traduit par :</div><label><input type="radio" name="q28">un changement d'état</label><label><input type="radio" name="q28" data-ok="1">l'apparition de nouvelles espèces chimiques</label><label><input type="radio" name="q28">un simple déplacement</label></div>
+  <div class="q" data-exp="le joule"><div class="qq"><span class="qn">29</span>🔥 L'unité d'énergie est :</div><label><input type="radio" name="q29" data-ok="1">le joule (J)</label><label><input type="radio" name="q29">le watt (W)</label><label><input type="radio" name="q29">le newton (N)</label></div>
+  <div class="q" data-exp="2 H₂O"><div class="qq"><span class="qn">30</span>🔥 Équilibrer : 2 H₂ + O₂ → :</div><label><input type="radio" name="q30">H₂O</label><label><input type="radio" name="q30" data-ok="1">2 H₂O</label><label><input type="radio" name="q30">2 HO</label></div>
+  <div class="q" data-exp="mécanique → électrique"><div class="qq"><span class="qn">31</span>🔥 Un alternateur convertit l'énergie :</div><label><input type="radio" name="q31" data-ok="1">mécanique en électrique</label><label><input type="radio" name="q31">électrique en lumineuse</label><label><input type="radio" name="q31">chimique en thermique</label></div>
+  <div class="q" data-exp="R = R₁+R₂"><div class="qq"><span class="qn">32</span>🔥 Deux résistors en série : la résistance totale :</div><label><input type="radio" name="q32" data-ok="1">augmente (R₁+R₂)</label><label><input type="radio" name="q32">diminue</label><label><input type="radio" name="q32">reste R₁</label></div>
 
   <div class="qscore" id="qstat">Réponds aux questions pour gagner des badges ! <span id="qnums"></span>
     <div class="bar"><i id="qbar"></i></div></div>
@@ -285,7 +288,6 @@
  var KEY='brevet_best_'+location.pathname;
  var best=parseInt(localStorage.getItem(KEY)||'0',10)||0;
  var muted=(localStorage.getItem('brevet_muted')==='1');
- // ---------- son (Web Audio, sans fichier) ----------
  var AC=null;
  function ac(){ if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){AC=null;}} if(AC&&AC.state==='suspended'){AC.resume();} return AC; }
  function buzz(){ if(muted)return; var c=ac(); if(!c)return; var t=c.currentTime;
@@ -298,7 +300,6 @@
   [[660,0],[990,0.085]].forEach(function(n){ var o=c.createOscillator(); o.type='sine'; o.frequency.value=n[0];
    var g=c.createGain(); g.gain.setValueAtTime(0.0001,t+n[1]); g.gain.exponentialRampToValueAtTime(0.22,t+n[1]+0.02); g.gain.exponentialRampToValueAtTime(0.0001,t+n[1]+0.22);
    o.connect(g); g.connect(c.destination); o.start(t+n[1]); o.stop(t+n[1]+0.24); }); }
- // ---------- barre d'actions ----------
  var qscore=root.querySelector('.qscore'), bestEl=null, sndBtn=null;
  if(qscore){
   var rrow=document.createElement('div'); rrow.className='qactions';
@@ -313,6 +314,7 @@
  }
  function renderBest(){ if(bestEl) bestEl.innerHTML = best>0 ? ('\ud83c\udfc6 Record : <b>'+best+'/'+total+'</b>') : ''; }
  function okText(q){ var ok=q.querySelector('input[data-ok]'); return ok?ok.parentNode.textContent.trim():'?'; }
+ function norm(s){ return (s||'').replace(/\s+/g,'').toLowerCase(); }
  function confetti(){
   var box=document.createElement('div'); box.className='confetti-wrap';
   var cols=['#f472b6','#a855f7','#22c55e','#fbbf24','#38bdf8','#fb7185'];
@@ -327,8 +329,9 @@
   var rev=root.querySelector('.reveal'); if(rev) rev.open=false;
  }
  function clearQ(q){
-  q.classList.remove('gd','bd');
+  q.classList.remove('gd','bd','locked');
   [].slice.call(q.querySelectorAll('label')).forEach(function(l){l.classList.remove('pick','right');});
+  [].slice.call(q.querySelectorAll('input')).forEach(function(inp){inp.disabled=false;});
   var v=q.querySelector('.verdict'); if(v) v.style.display='none';
  }
  function shuffle(){
@@ -350,9 +353,13 @@
    a++; var ok=sel.hasAttribute('data-ok'); if(ok)c++;
    sel.closest('label').classList.add('pick');
    var right=q.querySelector('input[data-ok]'); if(right) right.closest('label').classList.add('right');
-   q.classList.add(ok?'gd':'bd');
+   q.classList.add(ok?'gd':'bd','locked');
+   [].slice.call(q.querySelectorAll('input')).forEach(function(inp){inp.disabled=true;}); // verrouillage
+   var ans=okText(q), exp=q.getAttribute('data-exp')||'';
+   var showExp = exp && norm(exp)!==norm(ans);
    var v=q.querySelector('.verdict'); if(!v){v=document.createElement('div');v.className='verdict';q.appendChild(v);}
-   v.innerHTML = ok ? '\u2705 Bonne r\u00e9ponse !' : ('\u274c Faux \u2014 bonne r\u00e9ponse : <b>'+okText(q)+'</b>');
+   if(ok){ v.innerHTML='\u2705 Bonne r\u00e9ponse !'+(showExp?' <span class="ex">('+exp+')</span>':''); }
+   else { v.innerHTML='\u274c Faux \u2014 bonne r\u00e9ponse : <b>'+ans+'</b>'+(showExp?' <span class="ex">\u2014 '+exp+'</span>':''); }
    v.style.display='block';
   });
   var p=a?Math.round(c/a*100):0;
