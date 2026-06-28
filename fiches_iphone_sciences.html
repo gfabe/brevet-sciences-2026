@@ -83,8 +83,14 @@
 #mq .bdg.earned{opacity:1;filter:none;background:rgba(34,197,94,.16);border-color:rgba(34,197,94,.55);box-shadow:0 6px 18px rgba(34,197,94,.22);transform:translateY(-2px)}
 #mq .bdg.earned.hero{background:rgba(168,85,247,.18);border-color:rgba(168,85,247,.6);box-shadow:0 6px 20px rgba(168,85,247,.28);animation:bpop .5s ease}
 @keyframes bpop{0%{transform:scale(.8)}60%{transform:scale(1.12)}100%{transform:scale(1) translateY(-2px)}}
-#mq .q.gd label:has(input[data-ok]){background:rgba(34,197,94,.16);border-color:rgba(34,197,94,.55)}
-#mq .q.bd label.pick{background:rgba(239,68,68,.16);border-color:rgba(239,68,68,.5)}
+#mq label.right{background:rgba(34,197,94,.16)!important;border-color:rgba(34,197,94,.6)!important}
+#mq label.right::after{content:" \2713";font-weight:900;color:#16a34a}
+#mq .q.bd label.pick{background:rgba(239,68,68,.16)!important;border-color:rgba(239,68,68,.55)!important}
+#mq .q.bd label.pick::after{content:" \2717";font-weight:900;color:#dc2626}
+#mq .verdict{display:none;margin-top:5px;font-size:12px;font-weight:800}
+#mq .q.gd .verdict,#mq .q.bd .verdict{display:block}
+#mq .q.gd .verdict{color:#16a34a}
+#mq .q.bd .verdict{color:#dc2626}
 .confetti-wrap{position:fixed;inset:0;pointer-events:none;z-index:99999;overflow:hidden}
 .confetti-wrap i{position:absolute;top:-14px;width:9px;height:14px;border-radius:2px;opacity:.95;animation:cfall linear forwards}
 @keyframes cfall{to{transform:translateY(108vh) rotate(620deg);opacity:.9}}
@@ -275,16 +281,16 @@
  var wasHero=false;
  var KEY='brevet_best_'+location.pathname;
  var best=parseInt(localStorage.getItem(KEY)||'0',10)||0;
- // ---- barre d'actions : record + bouton nouveau tirage ----
  var qscore=root.querySelector('.qscore'), bestEl=null;
  if(qscore){
-  var row=document.createElement('div'); row.className='qactions';
+  var rrow=document.createElement('div'); rrow.className='qactions';
   var btn=document.createElement('button'); btn.id='qreset'; btn.type='button'; btn.textContent='\ud83d\udd04 Nouveau tirage';
   bestEl=document.createElement('span'); bestEl.id='qbest';
-  row.appendChild(btn); row.appendChild(bestEl); qscore.appendChild(row);
+  rrow.appendChild(btn); rrow.appendChild(bestEl); qscore.appendChild(rrow);
   btn.addEventListener('click', function(){ shuffle(); });
  }
  function renderBest(){ if(bestEl) bestEl.innerHTML = best>0 ? ('\ud83c\udfc6 Record : <b>'+best+'/'+total+'</b>') : ''; }
+ function okText(q){ var ok=q.querySelector('input[data-ok]'); return ok?ok.parentNode.textContent.trim():'?'; }
  function confetti(){
   var box=document.createElement('div'); box.className='confetti-wrap';
   var cols=['#f472b6','#a855f7','#22c55e','#fbbf24','#38bdf8','#fb7185'];
@@ -295,16 +301,20 @@
  }
  function rebuildCorr(){
   var corr=root.querySelector('.reveal .corr');
-  if(corr) corr.innerHTML=qs.map(function(q,idx){var ok=q.querySelector('input[data-ok]');var t=ok?ok.parentNode.textContent.trim():'?';return '<b>'+(idx+1)+'.</b> '+t;}).join(' \u00b7 ')+'.';
+  if(corr) corr.innerHTML=qs.map(function(q,idx){return '<b>'+(idx+1)+'.</b> '+okText(q);}).join(' \u00b7 ')+'.';
   var rev=root.querySelector('.reveal'); if(rev) rev.open=false;
+ }
+ function clearQ(q){
+  q.classList.remove('gd','bd');
+  [].slice.call(q.querySelectorAll('label')).forEach(function(l){l.classList.remove('pick','right');});
+  var v=q.querySelector('.verdict'); if(v) v.style.display='none';
  }
  function shuffle(){
   for(var i=qs.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=qs[i];qs[i]=qs[j];qs[j]=tmp;}
   qs.forEach(function(q,idx){
    var n=q.querySelector('.qn'); if(n)n.textContent=idx+1;
    [].slice.call(q.querySelectorAll('input')).forEach(function(inp){inp.checked=false;});
-   q.classList.remove('gd','bd');
-   [].slice.call(q.querySelectorAll('label')).forEach(function(l){l.classList.remove('pick');});
+   clearQ(q);
    if(anchor) sec.insertBefore(q, anchor);
   });
   rebuildCorr(); wasHero=false; up();
@@ -312,10 +322,16 @@
  function up(){
   var a=0,c=0;
   qs.forEach(function(q){
+   clearQ(q);
    var sel=q.querySelector('input:checked');
-   q.classList.remove('gd','bd');
-   [].slice.call(q.querySelectorAll('label')).forEach(function(l){l.classList.remove('pick');});
-   if(sel){a++;var ok=sel.hasAttribute('data-ok');if(ok)c++;q.classList.add(ok?'gd':'bd');sel.closest('label').classList.add('pick');}
+   if(!sel) return;
+   a++; var ok=sel.hasAttribute('data-ok'); if(ok)c++;
+   sel.closest('label').classList.add('pick');
+   var right=q.querySelector('input[data-ok]'); if(right) right.closest('label').classList.add('right');
+   q.classList.add(ok?'gd':'bd');
+   var v=q.querySelector('.verdict'); if(!v){v=document.createElement('div');v.className='verdict';q.appendChild(v);}
+   v.innerHTML = ok ? '\u2705 Bonne r\u00e9ponse !' : ('\u274c Faux \u2014 bonne r\u00e9ponse : <b>'+okText(q)+'</b>');
+   v.style.display='block';
   });
   var p=a?Math.round(c/a*100):0;
   if(stat)stat.innerHTML=' \u2014 <b>'+a+'/'+total+'</b> repondues \u00b7 <b>'+c+'</b> justes \u00b7 <b>'+p+'%</b>';
